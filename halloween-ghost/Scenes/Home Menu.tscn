@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmpgy64tv8dku"]
+[gd_scene load_steps=9 format=3 uid="uid://cmpgy64tv8dku"]
 
+[ext_resource type="Script" path="res://Scenes/button.gd" id="1_cpnrr"]
 [ext_resource type="Texture2D" uid="uid://boyllgbk5t3b7" path="res://Graveyard/Parallax Background/Background/Cloud 3.png" id="1_venhp"]
 [ext_resource type="Texture2D" uid="uid://danqqgqmon3ka" path="res://Graveyard/Parallax Background/Background/Cloud 2.png" id="2_2o7ej"]
 [ext_resource type="Texture2D" uid="uid://dy4e3hs0yrcrs" path="res://Graveyard/Parallax Background/Background/Cloud 1.png" id="3_luump"]
 [ext_resource type="Texture2D" uid="uid://over64hx7yu2" path="res://Graveyard/Parallax Background/Background/Moon.png" id="4_k0bwy"]
 [ext_resource type="Texture2D" uid="uid://cbbhjdtq6n531" path="res://Graveyard/Parallax Background/Mountain/Mountain 1.png" id="5_agen1"]
 [ext_resource type="Texture2D" uid="uid://c2ajirydx5md4" path="res://Graveyard/Parallax Background/Mountain/Mountain 2.png" id="6_qsn7v"]
+[ext_resource type="AudioStream" uid="uid://ctsc858a0gemm" path="res://Music/halloween-night-30s-240048.mp3" id="8_omklg"]
 
 [node name="HomeMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_cpnrr")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 custom_minimum_size = Vector2(250, 100)
@@ -63,3 +66,10 @@ texture = ExtResource("5_agen1")
 position = Vector2(576, 321)
 scale = Vector2(3.6, 3.57778)
 texture = ExtResource("6_qsn7v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_omklg")
+autoplay = true
+parameters/looping = false
+
+[connection signal="button_down" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_button_down"]
